@@ -1,17 +1,43 @@
+import { useState } from "react";
+import Navbar from "./components/Navbar";
+import ResumeForm from "./components/ResumeForm";
+import ResumePreview from "./components/ResumePreview";
+
 export default function App() {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    education: "",
+    experience: "",
+    skills: "",
+    github: "",
+    linkedin: "",
+    leetcode: "",
+    website: "",
+    projects: "",
+  });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(f => ({ ...f, [name]: value }));
+  };
+
   return (
-    <div className="min-h-screen grid place-items-center p-6">
-      <div className="max-w-2xl w-full">
-        <h1 className="text-4xl font-extrabold tracking-tight mb-3">
-          Resu<span className="text-blue-600">Mate</span> 🚀
-        </h1>
-        <p className="text-lg text-gray-600 mb-6">
-          Tailwind v4 is working!
-        </p>
-        <button className="px-4 py-2 rounded-xl bg-blue-600 text-white hover:bg-blue-500 transition">
-          Test Button
-        </button>
-      </div>
+    <div className="min-h-screen bg-gradient-to-br from-indigo-50 via-white to-blue-50 dark:from-gray-950 dark:via-gray-950 dark:to-gray-900 text-gray-900 dark:text-gray-100">
+      <Navbar />
+
+      <main className="max-w-6xl mx-auto px-4 sm:px-6 py-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <ResumeForm formData={formData} onChange={handleChange} />
+          <ResumePreview formData={formData} />
+        </div>
+      </main>
+
+      <footer className="py-6 text-center text-sm text-gray-500 dark:text-gray-400">
+        © {new Date().getFullYear()} ResuMate — Build. Preview. Shine.
+      </footer>
     </div>
-  )
+  );
 }
+
