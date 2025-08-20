@@ -1,12 +1,27 @@
-# React + Vite
+# ResuMate – Smart Resume Builder
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Overview
+ResuMate is an interactive resume builder that allows users to input personal, education, experience, skills, and social links, with a live preview of the resume in real time.
 
-Currently, two official plugins are available:
+## Features (Day 1–3)
+- **Day 1:** Project setup with React + Vite + Tailwind CSS
+-  **Day 2:** Resume form built with sections:
+  - Personal Info (Name, Email, Phone)
+  - Education
+  - Experience
+  - Skills
+  - Social Links (GitHub, LinkedIn, LeetCode)
+- **Day 3:** Live resume preview panel
+  - Updates instantly as you type
+  - Clean, professional Tailwind-styled layout
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Tech Stack
+- Frontend: React.js, Tailwind CSS
+- State Management: React `useState` (controlled components)
+- Deployment-ready structure for future backend/API integratio
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- ## Next Steps
+- PDF Export functionality
+- Multiple resume templates
+- AI-powered suggestions for experience & skills
+- Save multiple resumes per user with backend
