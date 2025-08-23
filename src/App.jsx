@@ -24,7 +24,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-indigo-50 via-white to-blue-50 dark:from-gray-950 dark:via-gray-950 dark:to-gray-900 text-gray-900 dark:text-gray-100">
+    <div className="min-h-screen bg-gradient-to-br from-[#eef2ff] via-[#ffffff] to-[#eff6ff] dark:from-[#0f172a] dark:via-[#0f172a] dark:to-[#111827] text-[#111827] dark:text-[#f3f4f6]">
       <Navbar />
 
       <main className="max-w-6xl mx-auto px-4 sm:px-6 py-8">
@@ -34,10 +34,12 @@ export default function App() {
         </div>
       </main>
 
-      <footer className="py-6 text-center text-sm text-gray-500 dark:text-gray-400">
+      <footer className="py-6 text-center text-sm text-[#6b7280] dark:text-[#9ca3af]">
         © {new Date().getFullYear()} ResuMate — Build. Preview. Shine.
       </footer>
     </div>
   );
 }
+
+
 
