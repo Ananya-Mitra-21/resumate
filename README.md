@@ -70,5 +70,26 @@ A modern resume builder built with **React**. Users can fill out their details, 
 - **html2canvas** – Convert DOM to canvas for export  
 - **jsPDF** – PDF generation  
 
+✅ Week 1 (Day 6) — Authentication System
+
+**Added a Node.js + Express backend (backend/ folder).
+
+**Implemented JWT authentication:
+POST /auth/register → Register new users (with bcrypt password hashing).
+POST /auth/login → Login with username & password, returns JWT token.
+GET /auth/me → Protected route to verify logged-in user.
+
+**Frontend Auth Flow (React):
+Login & Signup pages connected to backend.
+Token stored in localStorage after login.
+Navbar shows Login/Signup when logged out, Logout when logged in.
+Resume builder access is protected → redirects to login if not authenticated.
+
+🛠️ Tech Stack
+Frontend: React.js (Vite), Tailwind CSS
+Backend: Node.js, Express.js
+Auth: JWT (jsonwebtoken), bcrypt for password hashing
+PDF Export: react-to-print / jspdf
+Version Control: Git & GitHub
 
 
