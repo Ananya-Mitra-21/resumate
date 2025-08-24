@@ -14,7 +14,7 @@ export default function ResumeForm({ formData, onChange }) {
             onChange={onChange}
             placeholder="Ananya Mitra"
             className="w-full p-3 border border-[#d1d5db] dark:border-[#374151] rounded-xl bg-[#ffffff] dark:bg-[#111827] 
-              focus:ring-2 focus:ring-[#3b82f6] focus:outline-none shadow-sm"
+              focus:ring-2 focus:ring-[#3b82f6] focus:outline-none shadow-sm placeholder-white text-white"
           />
         </div>
 
@@ -29,7 +29,7 @@ export default function ResumeForm({ formData, onChange }) {
               onChange={onChange}
               placeholder="you@example.com"
               className="w-full p-3 border border-[#d1d5db] dark:border-[#374151] rounded-xl bg-[#ffffff] dark:bg-[#111827] 
-                focus:ring-2 focus:ring-[#3b82f6] focus:outline-none shadow-sm"
+                focus:ring-2 focus:ring-[#3b82f6] focus:outline-none shadow-sm placeholder-white text-white"
             />
           </div>
           <div>
@@ -41,7 +41,7 @@ export default function ResumeForm({ formData, onChange }) {
               onChange={onChange}
               placeholder="+91 9XXXXXXXXX"
               className="w-full p-3 border border-[#d1d5db] dark:border-[#374151] rounded-xl bg-[#ffffff] dark:bg-[#111827] 
-                focus:ring-2 focus:ring-[#3b82f6] focus:outline-none shadow-sm"
+                focus:ring-2 focus:ring-[#3b82f6] focus:outline-none shadow-sm placeholder-white text-white"
             />
           </div>
         </div>
@@ -56,7 +56,7 @@ export default function ResumeForm({ formData, onChange }) {
             onChange={onChange}
             placeholder={`B.Tech in CSE, ABC University (2021–2025)\nCGPA: 8.5/10`}
             className="w-full p-3 border border-[#d1d5db] dark:border-[#374151] rounded-xl bg-[#ffffff] dark:bg-[#111827] 
-              focus:ring-2 focus:ring-[#3b82f6] focus:outline-none shadow-sm"
+              focus:ring-2 focus:ring-[#3b82f6] focus:outline-none shadow-sm placeholder-white text-white"
           />
         </div>
 
@@ -70,7 +70,7 @@ export default function ResumeForm({ formData, onChange }) {
             onChange={onChange}
             placeholder={`Frontend Intern — XYZ (Jun 2025 – Aug 2025)\n- Built React components with Tailwind\n- Improved performance by 20%`}
             className="w-full p-3 border border-[#d1d5db] dark:border-[#374151] rounded-xl bg-[#ffffff] dark:bg-[#111827] 
-              focus:ring-2 focus:ring-[#3b82f6] focus:outline-none shadow-sm"
+              focus:ring-2 focus:ring-[#3b82f6] focus:outline-none shadow-sm placeholder-white text-white"
           />
         </div>
 
@@ -84,7 +84,7 @@ export default function ResumeForm({ formData, onChange }) {
             onChange={onChange}
             placeholder="React, Tailwind, Node.js, MongoDB"
             className="w-full p-3 border border-[#d1d5db] dark:border-[#374151] rounded-xl bg-[#ffffff] dark:bg-[#111827] 
-              focus:ring-2 focus:ring-[#3b82f6] focus:outline-none shadow-sm"
+              focus:ring-2 focus:ring-[#3b82f6] focus:outline-none shadow-sm placeholder-white text-white"
           />
         </div>
 
@@ -98,7 +98,7 @@ export default function ResumeForm({ formData, onChange }) {
             onChange={onChange}
             placeholder={`ResuMate — Resume builder app (2025)\n- Built with React and TailwindCSS\n- Supports PDF export`}
             className="w-full p-3 border border-[#d1d5db] dark:border-[#374151] rounded-xl bg-[#ffffff] dark:bg-[#111827] 
-              focus:ring-2 focus:ring-[#3b82f6] focus:outline-none shadow-sm"
+              focus:ring-2 focus:ring-[#3b82f6] focus:outline-none shadow-sm placeholder-white text-white"
           />
         </div>
 
@@ -114,7 +114,7 @@ export default function ResumeForm({ formData, onChange }) {
             onChange={onChange}
             placeholder={`Google Data Analytics — Coursera — https://coursera.org/...\nAWS Cloud Practitioner — Amazon\nHackerRank Java (Gold) — https://www.hackerrank.com/...`}
             className="w-full p-3 border border-[#d1d5db] dark:border-[#374151] rounded-xl bg-[#ffffff] dark:bg-[#111827] 
-              focus:ring-2 focus:ring-[#3b82f6] focus:outline-none shadow-sm"
+              focus:ring-2 focus:ring-[#3b82f6] focus:outline-none shadow-sm placeholder-white text-white"
           />
           <p className="text-xs mt-1 text-[#6b7280] dark:text-[#9ca3af]">
             Tip: Use “Title — Issuer — Link(optional)” format, but any text works.
@@ -132,7 +132,7 @@ export default function ResumeForm({ formData, onChange }) {
               onChange={onChange}
               placeholder="https://github.com/username"
               className="w-full p-3 border border-[#d1d5db] dark:border-[#374151] rounded-xl bg-[#ffffff] dark:bg-[#111827] 
-                focus:ring-2 focus:ring-[#3b82f6] focus:outline-none shadow-sm"
+                focus:ring-2 focus:ring-[#3b82f6] focus:outline-none shadow-sm placeholder-white text-white"
             />
           </div>
           <div>
@@ -144,7 +144,7 @@ export default function ResumeForm({ formData, onChange }) {
               onChange={onChange}
               placeholder="https://linkedin.com/in/username"
               className="w-full p-3 border border-[#d1d5db] dark:border-[#374151] rounded-xl bg-[#ffffff] dark:bg-[#111827] 
-                focus:ring-2 focus:ring-[#3b82f6] focus:outline-none shadow-sm"
+                focus:ring-2 focus:ring-[#3b82f6] focus:outline-none shadow-sm placeholder-white text-white"
             />
           </div>
           <div>
@@ -156,7 +156,7 @@ export default function ResumeForm({ formData, onChange }) {
               onChange={onChange}
               placeholder="https://leetcode.com/username"
               className="w-full p-3 border border-[#d1d5db] dark:border-[#374151] rounded-xl bg-[#ffffff] dark:bg-[#111827] 
-                focus:ring-2 focus:ring-[#3b82f6] focus:outline-none shadow-sm"
+                focus:ring-2 focus:ring-[#3b82f6] focus:outline-none shadow-sm placeholder-white text-white"
             />
           </div>
           <div>
@@ -168,7 +168,7 @@ export default function ResumeForm({ formData, onChange }) {
               onChange={onChange}
               placeholder="https://yourwebsite.com"
               className="w-full p-3 border border-[#d1d5db] dark:border-[#374151] rounded-xl bg-[#ffffff] dark:bg-[#111827] 
-                focus:ring-2 focus:ring-[#3b82f6] focus:outline-none shadow-sm"
+                focus:ring-2 focus:ring-[#3b82f6] focus:outline-none shadow-sm placeholder-white text-white"
             />
           </div>
         </div>
