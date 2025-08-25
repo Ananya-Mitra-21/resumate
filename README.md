@@ -92,4 +92,11 @@ Auth: JWT (jsonwebtoken), bcrypt for password hashing
 PDF Export: react-to-print / jspdf
 Version Control: Git & GitHub
 
+✅ Week 1 (Day 7)--> Backend+Database Integration
+Set up MongoDB Atlas connection with our backend.
+Configured .env and connected using Mongoose.
+Created a Resume model.
+Tested our POST /resume route (data inserted into DB) using Postman.
+Verified in Atlas UI that our documents are saved.
+Successfully tested GET /resume/:id in Postman (retrieving data from DB).
 
