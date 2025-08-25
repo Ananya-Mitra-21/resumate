@@ -32,3 +32,9 @@ build/
 
 # Optional cache folders
 .cache/
+
+# Ignore environment files
+.env
+backend/.env
+ResuMate/.env
+
