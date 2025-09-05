@@ -430,19 +430,6 @@ export default function ResumePreview({ formData }) {
     const input = document.getElementById("resume-preview");
     if (!input) return;
 
-    const containerRect = input.getBoundingClientRect();
-    const linkRects = Array.from(input.querySelectorAll("a[href]")).map((a) => {
-      const r = a.getBoundingClientRect();
-      const href = a.getAttribute("href") || "";
-      return {
-        href,
-        x: r.left - containerRect.left,
-        y: r.top - containerRect.top,
-        w: r.width,
-        h: r.height,
-      };
-    }).filter(l => l.href && l.w > 0 && l.h > 0);
-
     const originalBg = input.style.backgroundColor;
     input.style.backgroundColor = HEX.white;
 
@@ -457,17 +444,8 @@ export default function ResumePreview({ formData }) {
         const pageW = pdf.internal.pageSize.getWidth();
         const pageH = pdf.internal.pageSize.getHeight();
 
-        const ratio = canvas.height / canvas.width;
-        let renderW = pageW;
-        let renderH = renderW * ratio;
-        if (renderH > pageH) {
-          renderH = pageH;
-          renderW = renderH / ratio;
-        }
-        const offsetX = (pageW - renderW) / 2;
-        const offsetY = (pageH - renderH) / 2;
-
-        pdf.addImage(imgData, "PNG", offsetX, offsetY, renderW, renderH);
+        // 🔑 Fill the entire page (no borders)
+        pdf.addImage(imgData, "PNG", 0, 0, pageW, pageH);
 
         pdf.save("resume.pdf");
       })
@@ -519,5 +497,3 @@ export default function ResumePreview({ formData }) {
     </div>
   );
 }
-
-

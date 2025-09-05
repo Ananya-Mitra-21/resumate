@@ -1,32 +1,13 @@
 import { useState } from "react";
 import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import Navbar from "./components/Navbar";
-import ResumeForm from "./components/ResumeForm";
-import ResumePreview from "./components/ResumePreview";
-import Login from "./components/Login";
-import Signup from "./components/Signup";
+import ResumeDashboard from "./pages/ResumeDashboard";
+import Login from "./pages/Login";
+import Signup from "./pages/Signup";
+import PortfolioView from "./pages/PortfolioView"; // ⬅️ NEW
 
 export default function App() {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    education: "",
-    experience: "",
-    skills: "",
-    github: "",
-    linkedin: "",
-    leetcode: "",
-    website: "",
-    projects: "",
-  });
-
   const [token, setToken] = useState(localStorage.getItem("token"));
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((f) => ({ ...f, [name]: value }));
-  };
 
   const handleLogout = () => {
     localStorage.removeItem("token");
@@ -39,24 +20,22 @@ export default function App() {
 
       <main className="max-w-6xl mx-auto px-4 sm:px-6 py-8">
         <Routes>
+          {/* Public route for portfolio (no login required) */}
+          <Route path="/portfolio/:id" element={<PortfolioView />} />
+
           {!token ? (
             <>
+              {/* Public routes */}
               <Route path="/login" element={<Login setToken={setToken} />} />
               <Route path="/signup" element={<Signup />} />
               <Route path="*" element={<Navigate to="/login" />} />
             </>
           ) : (
             <>
-              <Route
-                path="/"
-                element={
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <ResumeForm formData={formData} onChange={handleChange} />
-                    <ResumePreview formData={formData} />
-                  </div>
-                }
-              />
-              <Route path="*" element={<Navigate to="/" />} />
+              {/* Private routes after login */}
+              <Route path="/" element={<ResumeDashboard />} />
+              <Route path="/dashboard" element={<ResumeDashboard />} />
+              <Route path="*" element={<Navigate to="/dashboard" />} />
             </>
           )}
         </Routes>
@@ -68,3 +47,8 @@ export default function App() {
     </Router>
   );
 }
+
+
+
+
+

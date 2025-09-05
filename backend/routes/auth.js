@@ -1,58 +1,64 @@
+// backend/routes/auth.js
 import express from "express";
 import jwt from "jsonwebtoken";
 import bcrypt from "bcryptjs";
+import User from "../models/User.js";
 
 const router = express.Router();
+const JWT_SECRET = process.env.JWT_SECRET || "supersecretkey";
 
-// Temporary in-memory user store
-let users = [];
-
-// Secret key for JWT (in real apps, store in .env)
-const JWT_SECRET = "supersecretkey";
-
-// ---------------- Register ----------------
+// Register
 router.post("/register", async (req, res) => {
   const { username, password } = req.body;
+  if (!username || !password) return res.status(400).json({ message: "Missing username or password" });
 
-  // Check if user exists
-  const existingUser = users.find((u) => u.username === username);
-  if (existingUser) {
-    return res.status(400).json({ message: "User already exists" });
+  try {
+    const existingUser = await User.findOne({ username });
+    if (existingUser) return res.status(400).json({ message: "User already exists" });
+
+    const hashedPassword = await bcrypt.hash(password, 10);
+    const newUser = new User({ username, password: hashedPassword });
+    await newUser.save();
+
+    res.json({ message: "User registered successfully" });
+  } catch (err) {
+    console.error("Auth register error:", err);
+    res.status(500).json({ message: "Server error", error: err.message });
   }
-
-  // Hash password
-  const hashedPassword = await bcrypt.hash(password, 10);
-
-  const newUser = { username, password: hashedPassword };
-  users.push(newUser);
-
-  res.json({ message: "User registered successfully" });
 });
 
-// ---------------- Login ----------------
+// Login
 router.post("/login", async (req, res) => {
   const { username, password } = req.body;
+  if (!username || !password) return res.status(400).json({ message: "Missing username or password" });
 
-  const user = users.find((u) => u.username === username);
-  if (!user) return res.status(400).json({ message: "Invalid credentials" });
+  try {
+    const user = await User.findOne({ username });
+    if (!user) return res.status(400).json({ message: "Invalid credentials" });
 
-  const isPasswordValid = await bcrypt.compare(password, user.password);
-  if (!isPasswordValid) return res.status(400).json({ message: "Invalid credentials" });
+    const isPasswordValid = await bcrypt.compare(password, user.password);
+    if (!isPasswordValid) return res.status(400).json({ message: "Invalid credentials" });
 
-  // Generate JWT
-  const token = jwt.sign({ username }, JWT_SECRET, { expiresIn: "1h" });
+    const token = jwt.sign({ id: user._id.toString(), username: user.username }, JWT_SECRET, {
+      expiresIn: "2h",
+    });
 
-  res.json({ token });
+    res.json({ token });
+  } catch (err) {
+    console.error("Auth login error:", err);
+    res.status(500).json({ message: "Server error", error: err.message });
+  }
 });
 
-// ---------------- Verify (Protected Route) ----------------
+// Verify current token (optional)
 router.get("/me", (req, res) => {
   const authHeader = req.headers["authorization"];
   if (!authHeader) return res.status(401).json({ message: "No token provided" });
 
-  const token = authHeader.split(" ")[1]; // "Bearer <token>"
-  if (!token) return res.status(401).json({ message: "Invalid token format" });
+  const parts = authHeader.split(" ");
+  if (parts.length !== 2) return res.status(401).json({ message: "Invalid token format" });
 
+  const token = parts[1];
   try {
     const decoded = jwt.verify(token, JWT_SECRET);
     res.json({ user: decoded });

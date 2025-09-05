@@ -1,7 +1,10 @@
+import { Link } from "react-router-dom";
+
 export default function Navbar({ onLogout, isLoggedIn }) {
   return (
     <header className="sticky top-0 z-40 bg-white/70 dark:bg-[#111827]/70 backdrop-blur border-b border-gray-200 dark:border-gray-800">
       <nav className="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+        {/* Logo */}
         <div className="flex items-center gap-2">
           <span className="inline-flex h-8 w-8 items-center justify-center rounded-xl bg-gradient-to-br from-blue-600 to-indigo-600 text-white font-extrabold shadow">
             R
@@ -11,18 +14,37 @@ export default function Navbar({ onLogout, isLoggedIn }) {
           </h1>
         </div>
 
-        {isLoggedIn && (
-          <button
-            onClick={onLogout}
-            className="px-4 py-2 bg-red-500 text-white rounded-lg shadow hover:bg-red-600"
-          >
-            Logout
-          </button>
-        )}
+        {/* Right Side */}
+        <div className="flex items-center gap-4">
+          {!isLoggedIn ? (
+            <>
+              <Link
+                to="/login"
+                className="px-4 py-2 bg-blue-600 text-white rounded-lg shadow hover:bg-blue-700"
+              >
+                Login
+              </Link>
+              <Link
+                to="/signup"
+                className="px-4 py-2 bg-green-600 text-white rounded-lg shadow hover:bg-green-700"
+              >
+                Signup
+              </Link>
+            </>
+          ) : (
+            <button
+              onClick={onLogout}
+              className="px-4 py-2 bg-red-500 text-white rounded-lg shadow hover:bg-red-600"
+            >
+              Logout
+            </button>
+          )}
+        </div>
       </nav>
     </header>
   );
 }
+
 
 
 
