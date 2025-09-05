@@ -55,7 +55,9 @@ export default function PortfolioView() {
     skills,
   } = resume;
 
-  const skillList = Array.isArray(skills) ? skills : (skills || "").split(",").map(s => s.trim()).filter(Boolean);
+  const skillList = Array.isArray(skills)
+    ? skills
+    : (skills || "").split(",").map((s) => s.trim()).filter(Boolean);
 
   return (
     <div className="min-h-screen bg-white text-gray-900">
@@ -70,16 +72,24 @@ export default function PortfolioView() {
             {phone && <div>📞 {phone}</div>}
             <div className="flex flex-wrap gap-3 mt-2">
               {github && (
-                <a className="underline" href={github} target="_blank" rel="noreferrer">GitHub</a>
+                <a className="underline" href={github} target="_blank" rel="noreferrer">
+                  GitHub
+                </a>
               )}
               {linkedin && (
-                <a className="underline" href={linkedin} target="_blank" rel="noreferrer">LinkedIn</a>
+                <a className="underline" href={linkedin} target="_blank" rel="noreferrer">
+                  LinkedIn
+                </a>
               )}
               {leetcode && (
-                <a className="underline" href={leetcode} target="_blank" rel="noreferrer">LeetCode</a>
+                <a className="underline" href={leetcode} target="_blank" rel="noreferrer">
+                  LeetCode
+                </a>
               )}
               {website && (
-                <a className="underline" href={website} target="_blank" rel="noreferrer">Website</a>
+                <a className="underline" href={website} target="_blank" rel="noreferrer">
+                  Website
+                </a>
               )}
             </div>
           </div>
@@ -137,3 +147,4 @@ export default function PortfolioView() {
     </div>
   );
 }
+

@@ -4,8 +4,8 @@ import ResumeForm from "../components/ResumeForm";
 import ResumePreview from "../components/ResumePreview";
 import { useNavigate } from "react-router-dom";
 
-// Replace with your deployed backend URL
-const API_URL = "https://your-backend-domain.com";
+// Use environment variable for backend URL
+const API_URL = import.meta.env.VITE_API_URL;
 
 export default function ResumeDashboard() {
   const navigate = useNavigate();
@@ -388,9 +388,7 @@ export default function ResumeDashboard() {
                   >
                     {resume.name || "Untitled"} ({resume.email})
                     {resume.isPublic && (
-                      <span className="ml-2 text-xs text-green-600">
-                        • Public
-                      </span>
+                      <span className="ml-2 text-xs text-green-600">• Public</span>
                     )}
                   </button>
                   <div className="flex items-center gap-2">
@@ -422,3 +420,4 @@ export default function ResumeDashboard() {
     </div>
   );
 }
+

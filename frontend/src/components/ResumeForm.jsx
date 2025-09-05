@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export default function ResumeForm({ formData, onChange }) {
-  const BASE_URL = import.meta.env.VITE_API_URL; // Use environment variable
+  const BASE_URL = import.meta.env.VITE_API_URL; // Environment variable for backend
 
   // --- helper function to call AI backend ---
   const improveField = async (fieldName) => {
@@ -16,7 +16,7 @@ export default function ResumeForm({ formData, onChange }) {
         text: fieldValue,
       });
 
-      if (res.data && res.data.suggestion) {
+      if (res.data?.suggestion) {
         onChange({
           target: { name: fieldName, value: res.data.suggestion },
         });
@@ -189,8 +189,7 @@ export default function ResumeForm({ formData, onChange }) {
             ✨ Improve with AI
           </button>
           <p className="text-xs mt-1 text-[#6b7280] dark:text-[#9ca3af]">
-            Tip: Use “Title — Issuer — Link(optional)” format, but any text
-            works.
+            Tip: Use “Title — Issuer — Link(optional)” format, but any text works.
           </p>
         </div>
 
