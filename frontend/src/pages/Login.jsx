@@ -10,7 +10,6 @@ export default function Login({ setToken }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // ✅ Frontend validation
     if (!username.trim() || !password.trim()) {
       alert("⚠️ Please enter both username and password.");
       return;
@@ -19,24 +18,20 @@ export default function Login({ setToken }) {
     setLoading(true);
 
     try {
-      const res = await fetch("http://localhost:5000/auth/login", {
+      const res = await fetch(`${import.meta.env.VITE_API_URL}/auth/login`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ username, password }),
       });
 
       const data = await res.json();
-      console.log("Login response:", data); // ✅ Debugging
+      console.log("Login response:", data);
 
       if (res.ok && data.token) {
-        // ✅ Save token for later requests
         localStorage.setItem("token", data.token);
-
-        // ✅ Update parent state if provided
         if (setToken) setToken(data.token);
-
         alert("✅ Logged in successfully!");
-        navigate("/"); // redirect to dashboard/home
+        navigate("/");
       } else {
         alert(`⚠️ Login failed: ${data.message || "Unknown error"}`);
       }
@@ -83,3 +78,5 @@ export default function Login({ setToken }) {
     </div>
   );
 }
+
+

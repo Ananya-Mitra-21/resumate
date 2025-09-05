@@ -9,7 +9,7 @@ export default function PortfolioView() {
   useEffect(() => {
     (async () => {
       try {
-        const res = await fetch(`http://localhost:5000/resume/public/${id}`);
+        const res = await fetch(`${import.meta.env.VITE_API_URL}/resume/public/${id}`);
         if (!res.ok) {
           const err = await res.json().catch(() => ({}));
           throw new Error(err.message || "Not found");

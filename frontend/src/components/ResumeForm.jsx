@@ -1,6 +1,8 @@
 import axios from "axios";
 
 export default function ResumeForm({ formData, onChange }) {
+  const BASE_URL = import.meta.env.VITE_API_URL; // Use environment variable
+
   // --- helper function to call AI backend ---
   const improveField = async (fieldName) => {
     const fieldValue = formData[fieldName];
@@ -10,7 +12,7 @@ export default function ResumeForm({ formData, onChange }) {
     }
 
     try {
-      const res = await axios.post("http://localhost:5000/ai/suggest", {
+      const res = await axios.post(`${BASE_URL}/ai/suggest`, {
         text: fieldValue,
       });
 

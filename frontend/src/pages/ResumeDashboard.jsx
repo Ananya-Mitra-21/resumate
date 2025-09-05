@@ -4,6 +4,9 @@ import ResumeForm from "../components/ResumeForm";
 import ResumePreview from "../components/ResumePreview";
 import { useNavigate } from "react-router-dom";
 
+// Replace with your deployed backend URL
+const API_URL = "https://your-backend-domain.com";
+
 export default function ResumeDashboard() {
   const navigate = useNavigate();
 
@@ -59,7 +62,7 @@ export default function ResumeDashboard() {
     if (isTokenValid()) {
       const token = getToken();
       const decoded = jwtDecode(token);
-      const uid = decoded.id || decoded._id || decoded.email; // depending on your backend
+      const uid = decoded.id || decoded._id || decoded.email;
       setUserId(uid);
 
       const state = localStorage.getItem(`resumeDashboardState_${uid}`);
@@ -73,13 +76,12 @@ export default function ResumeDashboard() {
           console.error("Error parsing dashboard state:", e);
         }
       } else {
-        // fresh form for new user
         setFormData(emptyForm);
         setSavedResumes([]);
         setEditingId(null);
       }
 
-      loadResumes(); // only load if token exists and is valid
+      loadResumes();
     }
   }, []);
 
@@ -128,7 +130,7 @@ export default function ResumeDashboard() {
           : [],
       };
 
-      const res = await fetch("http://localhost:5000/resume", {
+      const res = await fetch(`${API_URL}/resume`, {
         method: "POST",
         headers: getAuthHeaders(),
         body: JSON.stringify(payload),
@@ -157,7 +159,7 @@ export default function ResumeDashboard() {
     if (!requireLogin()) return;
 
     try {
-      const res = await fetch("http://localhost:5000/resume", {
+      const res = await fetch(`${API_URL}/resume`, {
         headers: getAuthHeaders(),
       });
 
@@ -188,7 +190,7 @@ export default function ResumeDashboard() {
           : [],
       };
 
-      const res = await fetch(`http://localhost:5000/resume/${editingId}`, {
+      const res = await fetch(`${API_URL}/resume/${editingId}`, {
         method: "PUT",
         headers: getAuthHeaders(),
         body: JSON.stringify(payload),
@@ -218,7 +220,7 @@ export default function ResumeDashboard() {
     if (!requireLogin()) return;
 
     try {
-      const res = await fetch(`http://localhost:5000/resume/${id}`, {
+      const res = await fetch(`${API_URL}/resume/${id}`, {
         method: "DELETE",
         headers: getAuthHeaders(),
       });
@@ -249,20 +251,17 @@ export default function ResumeDashboard() {
     if (!requireLogin()) return;
 
     try {
-      const res = await fetch(
-        `http://localhost:5000/resume/${editingId}/publish`,
-        {
-          method: "PUT",
-          headers: getAuthHeaders(),
-        }
-      );
+      const res = await fetch(`${API_URL}/resume/${editingId}/publish`, {
+        method: "PUT",
+        headers: getAuthHeaders(),
+      });
 
       if (!res.ok) {
         const errData = await res.json();
         throw new Error(errData.message || "Failed to publish resume");
       }
 
-      const data = await res.json(); // updated resume with isPublic = true
+      const data = await res.json();
       const updatedResumes = savedResumes.map((r) =>
         r._id === data._id ? data : r
       );
@@ -270,8 +269,6 @@ export default function ResumeDashboard() {
       saveDashboardState(formData, updatedResumes, editingId);
 
       const shareUrl = `${window.location.origin}/portfolio/${data._id}`;
-
-      // Copy to clipboard + prompt
       try {
         await navigator.clipboard.writeText(shareUrl);
         alert("🔗 Share link copied to clipboard:\n" + shareUrl);
@@ -425,23 +422,3 @@ export default function ResumeDashboard() {
     </div>
   );
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
