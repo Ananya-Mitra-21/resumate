@@ -16,7 +16,11 @@ app.use(express.json());
 // --- CORS (allow frontend app) ---
 app.use(
   cors({
-    origin: "http://localhost:5173", // frontend dev server
+    origin: [
+      "http://localhost:5173",              // local development
+      "https://resumate-frontend-psi.vercel.app" // deployed frontend on Vercel
+    ],
+    methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
   })
 );
@@ -49,4 +53,3 @@ const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`🚀 Server running on http://localhost:${PORT}`);
 });
-
