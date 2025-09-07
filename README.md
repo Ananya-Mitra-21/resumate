@@ -1,5 +1,6 @@
 # ResuMate – Smart Resume Builder
 ***PROJECT REPORT PDF LINK*** - https://github.com/Ananya-Mitra-21/resumate/raw/main/ResuMate_report.pdf
+- **Deployed App:** - https://resumate-frontend-psi.vercel.app
 
 ## Overview
 ResuMate is an AI-powered resume and portfolio builder that helps users create, improve, and share professional resumes with ease. It integrates AI suggestions, PDF export, and public portfolio sharing in a modern web app.
