@@ -94,19 +94,19 @@ Version Control: Git & GitHub
 
 ## ✅ Week 2 Work Completed  
 
-### 🔹 Day 8 – AI Integration (Setup)  
+### 🔹 Day 8-9 – AI Integration (Setup)  
 - Integrated **AI APIs (Cohere & OpenAI free tier)** into the backend.  
 - Created a route `/ai/suggest` → takes user input → returns AI-enhanced text.  
 
-### 🔹 Day 9 – AI Suggestions (Experience Section)  
+### 🔹 Day 10-12 – AI Suggestions (Experience Section)  
 - Added **“Improve with AI”** button near the **Experience** field.  
 - User enters raw text → AI rewrites it into **professional, impactful job descriptions**.  
 
-### 🔹 Day 10 – AI Suggestions (Skills & Summary)  
+### 🔹 Day 13-14 – AI Suggestions (Skills & Summary)  
 - Extended AI support for **Skills** and **Summary** fields.  
 - AI now suggests **better phrasing** and highlights **missing but relevant skills**.  
 
-### 🔹 Day 11 - Day 12 – Extra Features (Unique Touch)  
+### 🔹 Day 15 - Day 17 – Extra Features (Unique Touch)  
 - Implemented **Portfolio Mode** → transforms a resume into a **public portfolio site**.  
 - Added **Shareable Link** feature → users can share their portfolio using a unique URL.  
 
@@ -121,11 +121,11 @@ Version Control: Git & GitHub
 
 ---
 
-## 🔗 Links  
+## 🔗 Links (Day-18) 
 - **Deployed App:** - https://resumate-frontend-psi.vercel.app
 
 ---
 
-## 📌 Conclusion  
+## 📌 Conclusion (Day19-20) 
 Week 2 concentrated on **AI-powered features, UI improvements, and portfolio functionality**.  
 With **AI suggestions, professional templates, and public portfolio sharing**, ResuMate now feels like a **practical, job-ready product** that users can confidently use to create and showcase resumes.  
