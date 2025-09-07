@@ -92,4 +92,57 @@ Auth: JWT (jsonwebtoken), bcrypt for password hashing
 PDF Export: react-to-print / jspdf
 Version Control: Git & GitHub
 
+✅ Week 2 -Full setup
 
+📄 ResuMate – AI-Powered Resume & Portfolio Builder
+
+ResuMate is a full-stack MERN application that helps users build professional resumes, generate AI-enhanced content, and create shareable online portfolios.
+
+Users can:
+✅ Build and manage multiple resumes
+✅ Export resumes as professional PDF templates
+✅ Use AI suggestions (via Cohere API) to improve content
+✅ Add certificates, skills, projects, and social links
+✅ Securely register/login with JWT authentication
+✅ Publish resumes as public portfolios
+
+🚀 Live Demo
+
+Frontend (Vercel): https://resumate-frontend-psi.vercel.app
+
+📌 Features
+
+🔒 User Authentication – Secure login & signup with JWT + bcrypt
+
+📝 Resume Builder – Structured fields (education, experience, skills, projects, certificates, etc.)
+
+🎨 Multiple Templates – Professionally styled resume layouts with PDF export
+
+🤖 AI Suggestions – Cohere-powered improvements for resume content
+
+🌐 Portfolio Sharing – Generate public portfolio links
+
+🛠 CRUD Operations – Create, update, delete resumes (saved in MongoDB)
+
+🧪 API Testing – Routes tested with Postman
+
+🛠️ Tech Stack
+**Frontend
+React.js
+Tailwind CSS
+Vite
+
+**Backend
+Node.js
+Express.js
+MongoDB Atlas
+JWT Authentication
+
+**AI Integration
+Cohere API (for resume suggestions)
+
+**Tools
+Postman (API testing)
+Git & GitHub (version control)
+Vercel (frontend deployment)
+Render (backend deployment during development)
