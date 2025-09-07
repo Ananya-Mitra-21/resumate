@@ -1,7 +1,7 @@
 # ResuMate – Smart Resume Builder
 
 ## Overview
-ResuMate is an interactive resume builder that allows users to input personal, education, experience, skills, and social links, with a live preview of the resume in real time.
+ResuMate is an AI-powered resume and portfolio builder that helps users create, improve, and share professional resumes with ease. It integrates AI suggestions, PDF export, and public portfolio sharing in a modern web app.
 
 ## Features (Day 1–3)
 - **Day 1:** Project setup with React + Vite + Tailwind CSS
